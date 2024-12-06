@@ -2,44 +2,44 @@
 <testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-02T14:54:58 IST" name="Default suite" finished-at="2024-05-02T14:56:35 IST" duration-ms="97108">
+  <suite started-at="2024-12-04T11:29:55 IST" name="Default suite" finished-at="2024-12-04T11:31:43 IST" duration-ms="108054">
     <groups>
     </groups>
-    <test started-at="2024-05-02T14:54:58 IST" name="Default test" finished-at="2024-05-02T14:56:35 IST" duration-ms="97108">
+    <test started-at="2024-12-04T11:29:55 IST" name="Default test" finished-at="2024-12-04T11:31:43 IST" duration-ms="108054">
       <class name="Edpuloginpage.EdpuLoginPageTestcases">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:Edpuloginpage.EdpuLoginPageTestcases@45ac5f9b]" started-at="2024-05-02T14:54:58 IST" name="setUp" finished-at="2024-05-02T14:55:01 IST" duration-ms="2671" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:Edpuloginpage.EdpuLoginPageTestcases@1c481ff2]" started-at="2024-12-04T11:29:55 IST" name="setUp" finished-at="2024-12-04T11:30:06 IST" duration-ms="10722" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="ValidatetheFiledsOnLoginPage()[pri:1, instance:Edpuloginpage.EdpuLoginPageTestcases@45ac5f9b]" started-at="2024-05-02T14:55:01 IST" name="ValidatetheFiledsOnLoginPage" finished-at="2024-05-02T14:55:06 IST" duration-ms="5358" status="PASS">
+        <test-method signature="ValidatetheFiledsOnLoginPage()[pri:1, instance:Edpuloginpage.EdpuLoginPageTestcases@1c481ff2]" started-at="2024-12-04T11:30:06 IST" name="ValidatetheFiledsOnLoginPage" finished-at="2024-12-04T11:30:14 IST" duration-ms="8719" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidatetheFiledsOnLoginPage -->
-        <test-method signature="WithEnteringValidEmailIdAndWithoutEnterPassword()[pri:2, instance:Edpuloginpage.EdpuLoginPageTestcases@45ac5f9b]" started-at="2024-05-02T14:55:06 IST" name="WithEnteringValidEmailIdAndWithoutEnterPassword" finished-at="2024-05-02T14:55:17 IST" duration-ms="11181" status="PASS">
+        <test-method signature="WithEnteringValidEmailIdAndWithoutEnterPassword()[pri:2, instance:Edpuloginpage.EdpuLoginPageTestcases@1c481ff2]" started-at="2024-12-04T11:30:14 IST" name="WithEnteringValidEmailIdAndWithoutEnterPassword" finished-at="2024-12-04T11:30:25 IST" duration-ms="11087" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- WithEnteringValidEmailIdAndWithoutEnterPassword -->
-        <test-method signature="WithoutEnterEmailIdAndWithEnterPassword()[pri:3, instance:Edpuloginpage.EdpuLoginPageTestcases@45ac5f9b]" started-at="2024-05-02T14:55:17 IST" name="WithoutEnterEmailIdAndWithEnterPassword" finished-at="2024-05-02T14:55:26 IST" duration-ms="9128" status="PASS">
+        <test-method signature="WithoutEnterEmailIdAndWithEnterPassword()[pri:3, instance:Edpuloginpage.EdpuLoginPageTestcases@1c481ff2]" started-at="2024-12-04T11:30:26 IST" name="WithoutEnterEmailIdAndWithEnterPassword" finished-at="2024-12-04T11:30:34 IST" duration-ms="8981" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- WithoutEnterEmailIdAndWithEnterPassword -->
-        <test-method signature="UnRegisteredEmailidandPassword()[pri:4, instance:Edpuloginpage.EdpuLoginPageTestcases@45ac5f9b]" started-at="2024-05-02T14:55:26 IST" name="UnRegisteredEmailidandPassword" finished-at="2024-05-02T14:55:44 IST" duration-ms="17299" status="PASS">
+        <test-method signature="UnRegisteredEmailidandPassword()[pri:4, instance:Edpuloginpage.EdpuLoginPageTestcases@1c481ff2]" started-at="2024-12-04T11:30:35 IST" name="UnRegisteredEmailidandPassword" finished-at="2024-12-04T11:30:51 IST" duration-ms="16621" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UnRegisteredEmailidandPassword -->
-        <test-method signature="EnterValidEmailidAndInvalidpassword()[pri:5, instance:Edpuloginpage.EdpuLoginPageTestcases@45ac5f9b]" started-at="2024-05-02T14:55:44 IST" name="EnterValidEmailidAndInvalidpassword" finished-at="2024-05-02T14:55:57 IST" duration-ms="13696" status="PASS">
+        <test-method signature="EnterValidEmailidAndInvalidpassword()[pri:5, instance:Edpuloginpage.EdpuLoginPageTestcases@1c481ff2]" started-at="2024-12-04T11:30:51 IST" name="EnterValidEmailidAndInvalidpassword" finished-at="2024-12-04T11:31:05 IST" duration-ms="13517" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- EnterValidEmailidAndInvalidpassword -->
-        <test-method signature="EnterInValidEmailidAndvalidpassword()[pri:6, instance:Edpuloginpage.EdpuLoginPageTestcases@45ac5f9b]" started-at="2024-05-02T14:55:57 IST" name="EnterInValidEmailidAndvalidpassword" finished-at="2024-05-02T14:56:11 IST" duration-ms="13823" status="PASS">
+        <test-method signature="EnterInValidEmailidAndvalidpassword()[pri:6, instance:Edpuloginpage.EdpuLoginPageTestcases@1c481ff2]" started-at="2024-12-04T11:31:05 IST" name="EnterInValidEmailidAndvalidpassword" finished-at="2024-12-04T11:31:18 IST" duration-ms="13832" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- EnterInValidEmailidAndvalidpassword -->
-        <test-method signature="WithoutEnteringEmailandPassword()[pri:7, instance:Edpuloginpage.EdpuLoginPageTestcases@45ac5f9b]" started-at="2024-05-02T14:56:11 IST" name="WithoutEnteringEmailandPassword" finished-at="2024-05-02T14:56:20 IST" duration-ms="9157" status="PASS">
+        <test-method signature="WithoutEnteringEmailandPassword()[pri:7, instance:Edpuloginpage.EdpuLoginPageTestcases@1c481ff2]" started-at="2024-12-04T11:31:18 IST" name="WithoutEnteringEmailandPassword" finished-at="2024-12-04T11:31:27 IST" duration-ms="8952" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- WithoutEnteringEmailandPassword -->
-        <test-method signature="ValidAccountmailAndValidpassword()[pri:8, instance:Edpuloginpage.EdpuLoginPageTestcases@45ac5f9b]" started-at="2024-05-02T14:56:20 IST" name="ValidAccountmailAndValidpassword" finished-at="2024-05-02T14:56:35 IST" duration-ms="14730" status="PASS">
+        <test-method signature="ValidAccountmailAndValidpassword()[pri:8, instance:Edpuloginpage.EdpuLoginPageTestcases@1c481ff2]" started-at="2024-12-04T11:31:27 IST" name="ValidAccountmailAndValidpassword" finished-at="2024-12-04T11:31:43 IST" duration-ms="15490" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidAccountmailAndValidpassword -->

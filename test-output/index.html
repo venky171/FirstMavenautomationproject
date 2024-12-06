@@ -5,8 +5,9 @@
   <meta charset='utf-8'>
   <title>TestNG reports</title>
 
-    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
-    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="testng-reports.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type='text/javascript'>
@@ -20,9 +21,9 @@
      -->
   </head>
 
-  <body>
-    <div class="top-banner-root">
+  <body>    <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
       <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
@@ -49,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\BLUEAVES\AppData\Local\Temp\testng-eclipse--782649474\testng-customsuite.xml</span>
+                    <span>C:\Users\BLUEAVES\AppData\Local\Temp\testng-eclipse-2108169743\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -219,7 +220,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\BLUEAVES\AppData\Local\Temp\testng-eclipse--782649474\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\BLUEAVES\AppData\Local\Temp\testng-eclipse-2108169743\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -272,35 +273,35 @@ data.addRows(8);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'UnRegisteredEmailidandPassword')
 data.setCell(0, 2, 'Edpuloginpage.EdpuLoginPageTestcases')
-data.setCell(0, 3, 17299);
+data.setCell(0, 3, 16621);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'ValidAccountmailAndValidpassword')
 data.setCell(1, 2, 'Edpuloginpage.EdpuLoginPageTestcases')
-data.setCell(1, 3, 14730);
+data.setCell(1, 3, 15490);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'EnterInValidEmailidAndvalidpassword')
 data.setCell(2, 2, 'Edpuloginpage.EdpuLoginPageTestcases')
-data.setCell(2, 3, 13823);
+data.setCell(2, 3, 13832);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'EnterValidEmailidAndInvalidpassword')
 data.setCell(3, 2, 'Edpuloginpage.EdpuLoginPageTestcases')
-data.setCell(3, 3, 13696);
+data.setCell(3, 3, 13517);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'WithEnteringValidEmailIdAndWithoutEnterPassword')
 data.setCell(4, 2, 'Edpuloginpage.EdpuLoginPageTestcases')
-data.setCell(4, 3, 11181);
+data.setCell(4, 3, 11087);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'WithoutEnteringEmailandPassword')
+data.setCell(5, 1, 'WithoutEnterEmailIdAndWithEnterPassword')
 data.setCell(5, 2, 'Edpuloginpage.EdpuLoginPageTestcases')
-data.setCell(5, 3, 9157);
+data.setCell(5, 3, 8981);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'WithoutEnterEmailIdAndWithEnterPassword')
+data.setCell(6, 1, 'WithoutEnteringEmailandPassword')
 data.setCell(6, 2, 'Edpuloginpage.EdpuLoginPageTestcases')
-data.setCell(6, 3, 9128);
+data.setCell(6, 3, 8952);
 data.setCell(7, 0, 7)
 data.setCell(7, 1, 'ValidatetheFiledsOnLoginPage')
 data.setCell(7, 2, 'Edpuloginpage.EdpuLoginPageTestcases')
-data.setCell(7, 3, 5358);
+data.setCell(7, 3, 8719);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -338,39 +339,40 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">ValidatetheFiledsOnLoginPage</span>
-                <span class="method-start">2690 ms</span>
+                <span class="method-start">10742 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">WithEnteringValidEmailIdAndWithoutEnterPassword</span>
-                <span class="method-start">8054 ms</span>
+                <span class="method-start">19477 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">WithoutEnterEmailIdAndWithEnterPassword</span>
-                <span class="method-start">19238 ms</span>
+                <span class="method-start">30575 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">UnRegisteredEmailidandPassword</span>
-                <span class="method-start">28368 ms</span>
+                <span class="method-start">39565 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">EnterValidEmailidAndInvalidpassword</span>
-                <span class="method-start">45669 ms</span>
+                <span class="method-start">56197 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">EnterInValidEmailidAndvalidpassword</span>
-                <span class="method-start">59367 ms</span>
+                <span class="method-start">69718 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">WithoutEnteringEmailandPassword</span>
-                <span class="method-start">73193 ms</span>
+                <span class="method-start">83564 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ValidAccountmailAndValidpassword</span>
-                <span class="method-start">82351 ms</span>
+                <span class="method-start">92522 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
     </div> <!-- wrapper -->
   </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
 </html>
