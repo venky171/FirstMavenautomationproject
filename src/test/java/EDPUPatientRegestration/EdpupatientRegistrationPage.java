@@ -29,8 +29,7 @@ public class EdpupatientRegistrationPage extends commonUtils {
 		OpenBrowser();
 		commonUtils.ModuleName = "EdpuMohap";
 		commonUtils.Reports("EdpumohapPatientRegistrationPage.html", "EdpumohapPatientRegistrationPage");
-		// s = commonUtils.readExcelSheet(ExcelClass.filepath3 + "Loginpagedata.xlsx",
-		// 0);
+		// s = commonUtils.readExcelSheet(ExcelClass.filepath3 + "Loginpagedata.xlsx",// 0); i am commenting this line due to internal issues
 		Elements = PageFactory.initElements(driver, EDPUPatientRegistrationElements.class);
 	}
 
