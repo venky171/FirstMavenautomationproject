@@ -21,11 +21,11 @@ public class EdpuLoginPageTestcases extends commonUtils {
 	public static EDPULoginpageElements Elements;
 	public Sheet s;
 	public Select select;
-	String baseUrl = "http://192.168.0.76:66/";
+	String baseUrl = "http://125.63.117.102:86/";
 
 	@BeforeClass
 	public void setUp() throws IOException {
-		OpenBrowser();
+		commonUtils.baseSetup();
 		commonUtils.ModuleName = "EdpuMohap";
 		commonUtils.Reports("EdpuMohapLoginPage.html", "EdpuMohapLoginPage");
 		//s = commonUtils.readExcelSheet(ExcelClass.filepath3 + "Loginpagedata.xlsx", 0);

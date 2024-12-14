@@ -28,12 +28,11 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.Edpu.Basesetup.BaseClass;
 import com.Edpu.Excels.ExcelClass;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -44,9 +43,9 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class commonUtils extends BaseClass {
+public class commonUtils {
 	public Robot robot;
-//	public static WebDriver driver;
+    public static WebDriver driver;
 	public static String newDateC;
 	public static String newDateF;
 	public static FileInputStream fii;
@@ -239,8 +238,10 @@ public class commonUtils extends BaseClass {
 
 	public static void baseSetup() {
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.get("192.168.0.76:60/");
+		ChromeOptions options = new ChromeOptions();
+		//options.addArguments("--headless");
+	    driver = new ChromeDriver(options);
+		driver.get("http://125.63.117.102:86/");
 		// driver.get("https://parabank.parasoft.com/");
 		driver.manage().window().maximize();
 	}

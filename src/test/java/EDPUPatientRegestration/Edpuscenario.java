@@ -28,7 +28,7 @@ public class Edpuscenario extends commonUtils {
 
 	@BeforeClass
 	public void setUp() throws IOException {
-		OpenBrowser();
+		baseSetup();
 		commonUtils.ModuleName = "EdpuMohap";
 		commonUtils.Reports("EdpumohapPatientRegistrationPage.html", "EdpumohapPatientRegistrationPage");
 		// s = commonUtils.readExcelSheet(ExcelClass.filepath3 + "Loginpagedata.xlsx", 0);

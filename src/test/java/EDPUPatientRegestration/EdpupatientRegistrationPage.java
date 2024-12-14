@@ -2,7 +2,7 @@ package EDPUPatientRegestration;
 
 import java.io.IOException;
 
-import org.openqa.selenium.Alert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -11,7 +11,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import com.Edpu.CommonUtils.commonUtils;
-import com.EdpuMohap.Elements.EDPULoginpageElements;
 import com.EdpuMohap.Elements.EDPUPatientRegistrationElements;
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -26,7 +25,7 @@ public class EdpupatientRegistrationPage extends commonUtils {
 
 	@BeforeClass
 	public void setUp() throws IOException {
-		OpenBrowser();
+		commonUtils.baseSetup();
 		commonUtils.ModuleName = "EdpuMohap";
 		commonUtils.Reports("EdpumohapPatientRegistrationPage.html", "EdpumohapPatientRegistrationPage");
 		// s = commonUtils.readExcelSheet(ExcelClass.filepath3 + "Loginpagedata.xlsx",// 0); i am commenting this line due to internal issues
