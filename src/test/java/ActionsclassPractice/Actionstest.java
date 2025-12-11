@@ -11,13 +11,11 @@ import com.Edpu.CommonUtils.commonUtils;
 
 public class Actionstest extends commonUtils {
 
-	
-//	@BeforeTest
-//	public void setUp() throws InterruptedException {
-//		Thread.sleep(2000);
-//		commonUtils.Openbrowser("https://www.w3schools.com/js/tryit.asp?filename=tryjs_default");
-//	}
-//     
+	@BeforeTest
+	public void setUp() throws InterruptedException {
+		Thread.sleep(2000);
+		commonUtils.Openbrowser("https://www.w3schools.com/js/tryit.asp?filename=tryjs_default");
+	}
 
 	@Test(priority = 1)
 	public void actionClickMethod() throws InterruptedException {
@@ -33,6 +31,7 @@ public class Actionstest extends commonUtils {
 		driver.quit();
 
 	}
+
 	@Test(priority = 2)
 	public void doubleclick() throws InterruptedException {
 		Thread.sleep(2000);
