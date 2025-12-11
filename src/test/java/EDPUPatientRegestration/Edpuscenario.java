@@ -11,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.Edpu.CommonUtils.commonUtils;
@@ -24,32 +25,39 @@ public class Edpuscenario extends commonUtils {
 	public static EDPUPatientRegistrationElements Elements;
 	public Sheet s;
 	public Select select;
-	String baseUrl = "http://192.168.0.76:86/";
+	//String baseUrl = "http://125.63.117.102:86/";
 
+	
+	//parallel
 	@BeforeClass
-	public void setUp() throws IOException {
-		baseSetup();
+	@Parameters("browser")
+	public void setUp(String browser) throws IOException {
+		
+		OpenBrowser(browser, "http://125.63.117.102:86/");
 		commonUtils.ModuleName = "EdpuMohap";
 		commonUtils.Reports("EdpumohapPatientRegistrationPage.html", "EdpumohapPatientRegistrationPage");
 		// s = commonUtils.readExcelSheet(ExcelClass.filepath3 + "Loginpagedata.xlsx", 0);
 		Elements = PageFactory.initElements(driver, EDPUPatientRegistrationElements.class);
 	}
+	/*normal@BeforeClass
+	public void setUp() throws IOException {
+	OpenBrowser("chrome", "http://125.63.117.102:86/");*/
 
 	@Test(priority = 0)
 	public void PatientRegistrationValidations() throws IOException, InterruptedException {
 		commonUtils.Thread_Sleep(2);
 		logger.log(LogStatus.INFO, "Login as nurse user into EDPU Mohap");
 		Edpulogin(driver, "nurse@blueaves.com", "files@123");
-		commonUtils.Thread_Sleep(3);
+	commonUtils.Thread_Sleep(3);
 		driver.findElement(By.xpath("//*[text()='  Patient Dashboard ']")).click();
 		commonUtils.Thread_Sleep(3);
-		driver.findElement(By.xpath("//*[text()='Reset Filter']")).click();
+		driver.findElement(By.xpath("//*[text()='Reset Filter']")).click(); 
 		commonUtils.Thread_Sleep(3);
 		driver.findElement(By.id("btnSearch")).click();
 		commonUtils.Thread_Sleep(3);
-		scroll_down(driver);
+		scroll_down(driver);}}
 		
-		int numberOfIterations = 66;
+/*		int numberOfIterations = 34;
 
 		for (int i = 0; i < numberOfIterations; i++) {
 			// Locate the "next" button element
@@ -62,7 +70,7 @@ public class Edpuscenario extends commonUtils {
 			Thread.sleep(2000); // 2-second delay, adjust as necessary
 		}
 
-		int numberOfIterations1 = 66;
+		int numberOfIterations1 = 34;
 
 		for (int i = 0; i < numberOfIterations1; i--) {
 			// Locate the "next" button element

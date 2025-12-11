@@ -21,10 +21,10 @@ public class EDPUPatientRegistrationElements {
 	@FindBy(how = How.XPATH, using = "(//*[contains(text(),'Please enter 15 digits emirates identification number!')])[2]")
 	public WebElement Errorpopup_message;
 	
-	@FindBy(how = How.XPATH, using = "(//*[contains(text(),'OK')])[2]")
+	@FindBy(how = How.XPATH, using = "//*[text()='OK']")
 	public WebElement Ok_button;
 	
-	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Patient personal information')]")
+	@FindBy(how = How.XPATH, using = "//*[text()='Patient personal information']")
 	public WebElement Patient_personalInformation_Page;
 	
 

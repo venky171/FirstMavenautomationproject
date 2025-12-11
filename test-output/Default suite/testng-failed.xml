@@ -3,19 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Edpuloginpage.EdpuLoginPageTestcases">
+      <class name="ActionsclassPractice.Actionstest">
         <methods>
-          <include name="EnterValidEmailidAndInvalidpassword"/>
-          <include name="WithoutEnterEmailIdAndWithEnterPassword"/>
-          <include name="ValidAccountmailAndValidpassword"/>
-          <include name="UnRegisteredEmailidandPassword"/>
-          <include name="WithoutEnteringEmailandPassword"/>
-          <include name="EnterInValidEmailidAndvalidpassword"/>
           <include name="setUp"/>
-          <include name="WithEnteringValidEmailIdAndWithoutEnterPassword"/>
-          <include name="ValidatetheFiledsOnLoginPage"/>
+          <include name="actionexamples"/>
         </methods>
-      </class> <!-- Edpuloginpage.EdpuLoginPageTestcases -->
+      </class> <!-- ActionsclassPractice.Actionstest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

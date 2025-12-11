@@ -2,7 +2,7 @@ package EDPUPatientRegestration;
 
 import java.io.IOException;
 
-
+import org.apache.poi.ss.usermodel.Sheet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -11,24 +11,23 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import com.Edpu.CommonUtils.commonUtils;
+import com.Edpu.Excels.ExcelClass;
 import com.EdpuMohap.Elements.EDPUPatientRegistrationElements;
 import com.relevantcodes.extentreports.LogStatus;
-
-import jxl.Sheet;
 
 public class EdpupatientRegistrationPage extends commonUtils {
 
 	public static EDPUPatientRegistrationElements Elements;
 	public Sheet s;
 	public Select select;
-	String baseUrl = "http://192.168.0.76:86/";
+	//String baseUrl = "http://125.63.117.102:86/";
 
 	@BeforeClass
-	public void setUp() throws IOException {
+	public void setUp() throws Exception {
 		commonUtils.baseSetup();
 		commonUtils.ModuleName = "EdpuMohap";
 		commonUtils.Reports("EdpumohapPatientRegistrationPage.html", "EdpumohapPatientRegistrationPage");
-		// s = commonUtils.readExcelSheet(ExcelClass.filepath3 + "Loginpagedata.xlsx",// 0); i am commenting this line due to internal issues
+		s = readExcelSheet(ExcelClass.filepath3 + "RegistrationData.xlsx", 0);
 		Elements = PageFactory.initElements(driver, EDPUPatientRegistrationElements.class);
 	}
 
@@ -53,15 +52,16 @@ public class EdpupatientRegistrationPage extends commonUtils {
 		} else {
 			captureScreenshot_fail(driver, "EdpumohapPatientRegistrationPage", "TC-002","User is able to see searchbutton,ReadingEid,patientEmiratesidField");
 		}
-		commonUtils.Thread_Sleep(5);
-		logger.log(LogStatus.INFO, "Entered 14 digits patient emirates id ");
-		Elements.Patient_EmiratesId_Field.sendKeys(generateRandomNumber(10));
+		commonUtils.Thread_Sleep(2);
+		logger.log(LogStatus.INFO, "Entered 9 digits patient emirates id ");
+		Elements.Patient_EmiratesId_Field.sendKeys(generateRandomNumber(9));
 		commonUtils.Thread_Sleep(2);
 		logger.log(LogStatus.INFO, "Clicked on search button ");
 		Elements.Search_Button.click();
 		commonUtils.Thread_Sleep(2);
 		String actualpopText = Elements.Errorpopup_message.getText();
-		String ExpectedpopupText = "Please enter 15 digits emirates identification number!";
+		String ExpectedpopupText = commonUtils.getExcelData(0, 0, s);
+		commonUtils.Thread_Sleep(2);
 		if (actualpopText.equals(ExpectedpopupText)) {
 			Assert.assertEquals(actualpopText, ExpectedpopupText);
 			captureScreenshot_pass(driver, "EdpumohapPatientRegistrationPage", "TC-003","User is able to see Please enter 15 digits emirates identification number! is displaying ");
@@ -77,8 +77,9 @@ public class EdpupatientRegistrationPage extends commonUtils {
 		commonUtils.Thread_Sleep(2);
 		logger.log(LogStatus.INFO, "Clicked on serach button");
 		Elements.Search_Button.click();
+		commonUtils.Thread_Sleep(2);
 		String actualpopText1 = Elements.Patient_personalInformation_Page.getText();
-		String ExpectedpopupText1 = "Patient personal information";
+		String ExpectedpopupText1 = commonUtils.getExcelData(1, 0, s);
 		if (actualpopText1.equals(ExpectedpopupText1)) {
 			Assert.assertEquals(actualpopText1, ExpectedpopupText1);
 			captureScreenshot_pass(driver, "EdpumohapPatientRegistrationPage", "TC-004","User is able to navigating to the Patient personal information page ");
@@ -87,7 +88,7 @@ public class EdpupatientRegistrationPage extends commonUtils {
 		}
 		logger.log(LogStatus.INFO, "Clicked on submitbutton patient personal InformationPage");
 		commonUtils.Thread_Sleep(2);
-	//	Elements.Search_Button.click();
+        commonUtils.scrollTo(driver, Elements.Submit_buttonONpatient_personalInformation_Page);
 		commonUtils.Thread_Sleep(2);
 		Elements.Submit_buttonONpatient_personalInformation_Page.click();
 		commonUtils.Thread_Sleep(2);
@@ -97,30 +98,4 @@ public class EdpupatientRegistrationPage extends commonUtils {
 		} else {
 			captureScreenshot_pass(driver, "EdpumohapPatientRegistrationPage", "TC-005","User is able to see validation messages After click submit button");
 		}}
-     @Test(priority  =1)
-      public void sucessfullpatienRegistration() {
-	    commonUtils.Thread_Sleep(2);
-		driver.navigate().refresh();
-		commonUtils.Thread_Sleep(2);
-		Elements.Patient_EmiratesId_Field.sendKeys(generateRandomNumber(12));
-		commonUtils.Thread_Sleep(2);
-		Elements.Search_Button.click();
-		commonUtils.Thread_Sleep(2);
-		String randomName = generateRandomFirstName();
-		commonUtils.Thread_Sleep(2);
-		logger.log(LogStatus.INFO, "patient First Name is entered");
-		WebElement firstNameField = driver.findElement(By.id("p_f_nameE")); 
-		commonUtils.Thread_Sleep(2);
-	    firstNameField.clear();
-	    commonUtils.Thread_Sleep(2);
-	    firstNameField.sendKeys(randomName);
-	    String randomName1 = generateRandomLastName();
-		commonUtils.Thread_Sleep(2);
-		logger.log(LogStatus.INFO, "patient LastName Name is entered");
-		WebElement LastNameField = driver.findElement(By.id("p_naamE")); 
-		commonUtils.Thread_Sleep(2);
-		LastNameField.clear();
-	    commonUtils.Thread_Sleep(2);
-	    LastNameField.sendKeys(randomName1);
-}
 }

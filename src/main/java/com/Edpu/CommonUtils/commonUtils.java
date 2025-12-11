@@ -16,11 +16,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -29,34 +35,38 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.Edpu.Excels.ExcelClass;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import jxl.Sheet;
-import jxl.Workbook;
 import jxl.read.biff.BiffException;
+
+
+
 
 public class commonUtils {
 	public Robot robot;
-    public static WebDriver driver;
+	public static WebDriver driver;
 	public static String newDateC;
 	public static String newDateF;
 	public static FileInputStream fii;
-	public static Workbook wbb;
+	//public static Workbook wbb;
 	public static Sheet sh;
 	// static int time;
 	public static DateFormat df = new SimpleDateFormat("dd MMM YYYY");
 	public static Date d = new Date();
 	public static String time = df.format(d);
 	public static WebDriverWait Wait;
-	public static Workbook wb;
+	public static XSSFWorkbook wb;
 	// public static ReturnOrder_Elements Elements;
 	public static File file;
 	public static DateFormat DateReport = new SimpleDateFormat("yyyy_MMM_dd hh_mm_ss a");
@@ -179,17 +189,16 @@ public class commonUtils {
 		return m + new Random().nextInt(9 * m);
 	}
 
-	public static Sheet readExcelSheet(String fileLocation, int sheetNumber) {
-		file = new File(fileLocation);
-		try {
-			wb = Workbook.getWorkbook(file);
-		} catch (BiffException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return wb.getSheet(sheetNumber);
-	}
+	
+ public static Sheet readExcelSheet(String fileLocation, int sheetNumber) throws Exception {
+	 file = new File(fileLocation); 
+	 try { wb= new XSSFWorkbook(file); }
+	 catch (IOException e)
+	 {
+	 e.printStackTrace(); 
+	 } 
+	 return wb.getSheetAt(sheetNumber); }
+	
 
 	public static String getDate(int day, String dateFormat) {
 		DateFormat dff = new SimpleDateFormat(dateFormat);
@@ -212,7 +221,7 @@ public class commonUtils {
 	}
 
 	public static String getExcelData(int postion1, int postion2, Sheet sheet) {
-		return sheet.getCell(postion1, postion2).getContents();
+		return sheet.getRow(postion1).getCell(postion2).getStringCellValue();
 	}
 
 	public static void navigate(WebDriver driver, String URL) {
@@ -237,15 +246,30 @@ public class commonUtils {
 	}
 
 	public static void baseSetup() {
-		WebDriverManager.chromedriver().setup();
+	//	WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		//options.addArguments("--headless");
-	    driver = new ChromeDriver(options);
-		driver.get("http://125.63.117.102:86/");
-		// driver.get("https://parabank.parasoft.com/");
+		options.addArguments("--disable-save-password-bubble");
+		options.addArguments("--disable-infobars");
+		options.addArguments("--disable-notifications");
+		driver = new ChromeDriver(options);
+	    driver.get("http://125.63.117.102:86/");
+		//driver.get("https://www.saucedemo.com/");
 		driver.manage().window().maximize();
 	}
-
+	 public static void Openbrowser(String URL) {
+         WebDriverManager.chromedriver().setup();
+ 		ChromeOptions options = new ChromeOptions();
+ 		options.addArguments("--disable-save-password-bubble");
+ 		options.addArguments("--disable-infobars");
+ 		options.addArguments("--disable-notifications");
+ 		Map<String, Object> prefs = new HashMap<>();
+ 		prefs.put("profile.default_content_setting_values.cookies", 1);  // 1 = Allow, 2 = Block
+ 		prefs.put("profile.block_third_party_cookies", false);           // Allow 3rd-party cookies
+ 		options.setExperimentalOption("prefs", prefs);
+ 		driver = new ChromeDriver(options);
+ 	    driver.get(URL);
+ 		driver.manage().window().maximize();
+ 	}
 	public static void Thread_Sleep(long seconds) {
 		try {
 			Thread.sleep(seconds * 1000);
@@ -523,7 +547,7 @@ public class commonUtils {
 		return wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
-	public static void Edpulogin(WebDriver driver, String username, String password) {
+  public static void Edpulogin(WebDriver driver, String username, String password) {
 		WebElement usernameField = driver.findElement(By.id("username"));
 		WebElement passwordField = driver.findElement(By.id("nopend"));
 		WebElement loginButton = driver.findElement(By.xpath("//*[@value='Login']"));
@@ -557,16 +581,46 @@ public class commonUtils {
 			break;
 		}
 	}
-	 public  static String generateRandomFirstName() {
-	        // You can generate a random name using your own logic or libraries
-	        // Here's a simple example:
-	        String[] names = {"Alice", "Bob", "Charlie", "David", "Eve"};
-	        int randomIndex = (int) (Math.random() * names.length);
-	        return names[randomIndex];
+
+	public static String generateRandomFirstName() {
+		// You can generate a random name using your own logic or libraries
+		// Here's a simple example:
+		String[] names = { "Alice", "Bob", "Charlie", "David", "Eve" };
+		int randomIndex = (int) (Math.random() * names.length);
+		return names[randomIndex];
+	}
+
+	public static String generateRandomLastName() {
+		String[] names = { "A", "B", "C", "D", "E" };
+		int randomIndex = (int) (Math.random() * names.length);
+		return names[randomIndex];
+	}
+	//@Parameters("browser");
+	public void OpenBrowser(String browserName,String url) {
+		
+		
+	    switch (browserName.toLowerCase()) {
+	        case "chrome":
+	            ChromeOptions options = new ChromeOptions();
+	            options.addArguments("--disable-save-password-bubble");
+	            options.addArguments("--disable-infobars");
+	            options.addArguments("--disable-notifications");
+	            driver = new ChromeDriver(options);
+	            break;
+
+	        case "ff":  // or "firefox"
+	            driver = new FirefoxDriver();
+	            break;
+	        case "ie":
+	            driver = new InternetExplorerDriver();
+	            break;
+
+	        default:
+	            throw new IllegalArgumentException("Browser not supported: " + browserName);
 	    }
-	 public static String generateRandomLastName() {
-		    String[] names = {"A", "B", "C", "D", "E"};
-		    int randomIndex = (int) (Math.random() * names.length);
-		    return names[randomIndex];
-		}
+	    driver.get(url);
+	    driver.manage().window().maximize();
+	   
+	
+}
 }

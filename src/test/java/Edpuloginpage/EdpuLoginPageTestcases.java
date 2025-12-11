@@ -2,19 +2,15 @@ package Edpuloginpage;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import com.Edpu.CommonUtils.commonUtils;
 import com.Edpu.Excels.ExcelClass;
 import com.EdpuMohap.Elements.EDPULoginpageElements;
-import com.EdpuMohap.Elements.EdpuMohapQABoothElements;
 import com.relevantcodes.extentreports.LogStatus;
-
-import jxl.Sheet;
 
 public class EdpuLoginPageTestcases extends commonUtils {
 
@@ -24,11 +20,11 @@ public class EdpuLoginPageTestcases extends commonUtils {
 	String baseUrl = "http://125.63.117.102:86/";
 
 	@BeforeClass
-	public void setUp() throws IOException {
+	public void setUp() throws Exception {
 		commonUtils.baseSetup();
 		commonUtils.ModuleName = "EdpuMohap";
 		commonUtils.Reports("EdpuMohapLoginPage.html", "EdpuMohapLoginPage");
-		//s = commonUtils.readExcelSheet(ExcelClass.filepath3 + "Loginpagedata.xlsx", 0);
+		s = readExcelSheet(ExcelClass.filepath3 + "Loginpagedata.xlsx", 0);
 		Elements = PageFactory.initElements(driver, EDPULoginpageElements.class);
 	}
 	@Test(priority = 1)
@@ -51,7 +47,9 @@ public class EdpuLoginPageTestcases extends commonUtils {
 		commonUtils.Thread_Sleep(2);
 		logger.log(LogStatus.INFO,"Entered valid Emaild");
 		commonUtils.Thread_Sleep(2);
-		Elements.EmailTextField.sendKeys("nurse@blueaves.com");
+	    Elements.EmailTextField.sendKeys(commonUtils.getExcelData(1, 0, s));
+	//	commonUtils.Thread_Sleep(2);
+	//    Elements.passwordTextField.sendKeys(commonUtils.getExcelData(1, 1, s));
 		commonUtils.Thread_Sleep(2);
 		logger.log(LogStatus.INFO,"Clicked on Login button");
 		Elements.Loginbutton.click();
@@ -70,7 +68,8 @@ public class EdpuLoginPageTestcases extends commonUtils {
 		driver.navigate().refresh();
 		commonUtils.Thread_Sleep(2);
 		logger.log(LogStatus.INFO,"Entered valid password");
-		Elements.passwordTextField.sendKeys("files@123");
+		commonUtils.Thread_Sleep(2);
+		Elements.passwordTextField.sendKeys(commonUtils.getExcelData(1, 1, s));
 		commonUtils.Thread_Sleep(2);
 		Elements.Loginbutton.click();
 		commonUtils.Thread_Sleep(2);
@@ -88,12 +87,12 @@ public class EdpuLoginPageTestcases extends commonUtils {
 		logger.log(LogStatus.INFO,"Entered unregistered EmailID");
 		Elements.EmailTextField.clear();
 		commonUtils.Thread_Sleep(2);
-		Elements.EmailTextField.sendKeys("nurse1@blueaves.com");
+		Elements.EmailTextField.sendKeys(commonUtils.getExcelData(2, 0, s));
 		commonUtils.Thread_Sleep(2);
 		logger.log(LogStatus.INFO,"Entered unRegitered password");
 		Elements.passwordTextField.clear();
 		commonUtils.Thread_Sleep(2);
-		Elements.passwordTextField.sendKeys("Nurse@321");
+		Elements.passwordTextField.sendKeys(commonUtils.getExcelData(2, 1, s));
 		commonUtils.Thread_Sleep(2);
 		Elements.Loginbutton.click();
 		commonUtils.Thread_Sleep(2);
@@ -111,12 +110,12 @@ public class EdpuLoginPageTestcases extends commonUtils {
 		logger.log(LogStatus.INFO,"Entered Valid EmailID");
 		Elements.EmailTextField.clear();
 		commonUtils.Thread_Sleep(2);
-		Elements.EmailTextField.sendKeys("nurse@blueaves.com");
+		Elements.EmailTextField.sendKeys(commonUtils.getExcelData(1, 0, s));
 		commonUtils.Thread_Sleep(2);
 		logger.log(LogStatus.INFO,"Entered Invalid password");
 		Elements.passwordTextField.clear();
 		commonUtils.Thread_Sleep(2);
-		Elements.passwordTextField.sendKeys("Nurse@321");
+		Elements.passwordTextField.sendKeys(commonUtils.getExcelData(2, 1, s));
 		commonUtils.Thread_Sleep(2);
 		Elements.Loginbutton.click();
 		commonUtils.Thread_Sleep(2);
@@ -126,30 +125,9 @@ public class EdpuLoginPageTestcases extends commonUtils {
 			captureScreenshot_fail(driver, "EdpuMohapLoginPage", "EnterValidEmailidAndInvalidpassword","User is Entered EnterValidEmailidAndInvalidpassword then not able to see Error validation");
 		}
 	}
-	@Test(priority = 6)
-	public void EnterInValidEmailidAndvalidpassword() throws IOException {
-		commonUtils.Thread_Sleep(2);
-		driver.navigate().refresh();
-		logger.log(LogStatus.INFO,"Entered InValid EmailID");
-		Elements.EmailTextField.clear();
-		commonUtils.Thread_Sleep(2);
-		Elements.EmailTextField.sendKeys("nurse1@blueaves.com");
-		commonUtils.Thread_Sleep(2);
-		logger.log(LogStatus.INFO,"Entered valid password");
-		Elements.passwordTextField.clear();
-		commonUtils.Thread_Sleep(2);
-		Elements.passwordTextField.sendKeys("files@123");
-		commonUtils.Thread_Sleep(2);
-		Elements.Loginbutton.click();
-		commonUtils.Thread_Sleep(2);
-		if (Elements.UserdoesntExist_Err_validationMsg.isDisplayed()) {
-			captureScreenshot_pass(driver, "EdpuMohapLoginPage", "EnterValidEmailidAndInvalidpassword","User is Entered EnterInValidEmailidAndvalidpassword then able to see Error validation ");
-		} else {
-			captureScreenshot_fail(driver, "EdpuMohapLoginPage", "EnterValidEmailidAndInvalidpassword","User is Entered EnterInValidEmailidAndvalidpassword then not able to see Error validation");
-		}
-	}
 	
-	@Test(priority = 7)
+	
+	@Test(priority = 6)
 	public void WithoutEnteringEmailandPassword() throws IOException {
 		commonUtils.Thread_Sleep(2);
 		driver.navigate().to(baseUrl);
@@ -168,18 +146,22 @@ public class EdpuLoginPageTestcases extends commonUtils {
 		}
 	}
 	
-
-	@Test(priority = 8)
-	public void ValidAccountmailAndValidpassword() throws IOException {
+	@Test(priority = 7)
+	public void EnterInValidEmailidAndvalidpassword() throws IOException {
 		commonUtils.Thread_Sleep(2);
 		driver.navigate().refresh();
-		commonUtils.Thread_Sleep(2);
-		logger.log(LogStatus.INFO,"User is Entered Valid Email and password on Edpu Loginpage");
+		logger.log(LogStatus.INFO,"Entered InValid EmailID");
 		Elements.EmailTextField.clear();
 		commonUtils.Thread_Sleep(2);
+		Elements.EmailTextField.sendKeys(commonUtils.getExcelData(1, 0, s));
+		commonUtils.Thread_Sleep(2);
+		logger.log(LogStatus.INFO,"Entered valid password");
 		Elements.passwordTextField.clear();
 		commonUtils.Thread_Sleep(2);
-		Edpulogin(driver, "nurse@blueaves.com", "files@123");
+		Elements.passwordTextField.sendKeys(commonUtils.getExcelData(1, 1, s));
+		commonUtils.Thread_Sleep(2);
+		Elements.Loginbutton.click();
+		commonUtils.Thread_Sleep(2);
 		commonUtils.Thread_Sleep(2);
 		String windowTitle = getWindowTitle(driver);
 		commonUtils.Thread_Sleep(2);
@@ -188,10 +170,7 @@ public class EdpuLoginPageTestcases extends commonUtils {
 			captureScreenshot_pass(driver, "EdpuMohapLoginPage", "ValidAccountmailAndValidpassword","User is able to login with validAccountEmail And valid Password");
 		} else {
 			captureScreenshot_fail(driver, "EdpuMohapLoginPage", "ValidAccountmailAndValidpassword","User is not able to login with validAccountEmail And valid Password");
-		}
-	}
-
-}
+		}}}
 
 
 
