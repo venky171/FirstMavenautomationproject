@@ -18,7 +18,7 @@ public class Actionstest extends commonUtils {
 //		commonUtils.Openbrowser("https://www.w3schools.com/js/tryit.asp?filename=tryjs_default");
 //	}
 //     
-/*	
+
 	@Test(priority = 1)
 	public void actionClickMethod() throws InterruptedException {
 		Thread.sleep(2000);
@@ -32,7 +32,7 @@ public class Actionstest extends commonUtils {
 		Thread.sleep(2000);
 		driver.quit();
 
-	}*/
+	}
 	@Test(priority = 2)
 	public void doubleclick() throws InterruptedException {
 		Thread.sleep(2000);
