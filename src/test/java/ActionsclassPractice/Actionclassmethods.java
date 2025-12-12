@@ -11,11 +11,11 @@ import com.Edpu.CommonUtils.commonUtils;
 
 public class Actionclassmethods extends commonUtils {
 
-	@BeforeTest
+	/*@BeforeTest
 	public void setUp() throws InterruptedException {
 		Thread.sleep(2000);
 		commonUtils.Openbrowser("https://www.w3schools.com/js/tryit.asp?filename=tryjs_default");
-	}
+	}*/ //commented by venkatesh vadisala
 
 	@Test(priority = 1)
 	public void actionClickMethod() throws InterruptedException {

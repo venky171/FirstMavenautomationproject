@@ -21,6 +21,6 @@ public class ActionsKeysMethodExample2 extends commonUtils {
 		ele1.sendKeys("hyd");
 		Actions actions = new Actions(driver);
 		actions.sendKeys(Keys.ENTER).perform();
-
+	
 	}
 }

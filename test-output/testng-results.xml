@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-11T21:46:16 IST" name="Default suite" finished-at="2025-12-11T21:46:28 IST" duration-ms="12637">
+  <suite started-at="2025-12-12T11:38:41 IST" name="Default suite" finished-at="2025-12-12T11:39:05 IST" duration-ms="24126">
     <groups>
     </groups>
-    <test started-at="2025-12-11T21:46:16 IST" name="Default test" finished-at="2025-12-11T21:46:28 IST" duration-ms="12637">
-      <class name="ActionsclassPractice.ActionsKeysMethodExample2">
-        <test-method signature="dropdownrelated()[pri:0, instance:ActionsclassPractice.ActionsKeysMethodExample2@3fa247d1]" started-at="2025-12-11T21:46:16 IST" name="dropdownrelated" finished-at="2025-12-11T21:46:28 IST" duration-ms="12494" status="PASS">
+    <test started-at="2025-12-12T11:38:41 IST" name="Default test" finished-at="2025-12-12T11:39:05 IST" duration-ms="24126">
+      <class name="SelectclassPractice.dropdownActions">
+        <test-method signature="actionClickMethod()[pri:1, instance:SelectclassPractice.dropdownActions@3fa247d1]" started-at="2025-12-12T11:38:41 IST" name="actionClickMethod" finished-at="2025-12-12T11:39:05 IST" duration-ms="24063" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- dropdownrelated -->
-      </class> <!-- ActionsclassPractice.ActionsKeysMethodExample2 -->
+        </test-method> <!-- actionClickMethod -->
+      </class> <!-- SelectclassPractice.dropdownActions -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
