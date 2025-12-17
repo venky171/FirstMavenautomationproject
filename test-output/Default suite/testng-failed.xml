@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SelectclassPractice.dropdownActions">
+      <class name="AlertPractice.AlertExamples">
         <methods>
           <include name="actionClickMethod"/>
         </methods>
-      </class> <!-- SelectclassPractice.dropdownActions -->
+      </class> <!-- AlertPractice.AlertExamples -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
